@@ -163,7 +163,7 @@ public class LiveDirs<I, T> {
             if(events.stream().anyMatch(evt -> evt.kind() == OVERFLOW)) {
                 refreshOrLogError(dir);
             } else {
-                for(WatchEvent<?> evt: key.pollEvents()) {
+                for(WatchEvent<?> evt: events) {
                     @SuppressWarnings("unchecked")
                     WatchEvent<Path> event = (WatchEvent<Path>) evt;
                     processEvent(dir, event);
